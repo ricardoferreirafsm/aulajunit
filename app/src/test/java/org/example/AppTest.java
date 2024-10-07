@@ -10,17 +10,33 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class AppTest {
 
-    private App myApp;
+    private static App myApp;
+
+    //Para o caso de querer utilizar o BeforeEach
+    //private App myApp
+
+    /* No caso de querer utilizar o beforeAll o atributo myApp tem que ser estático pois
+    é inicializado apenas uma vez.*/
     @BeforeAll
-    void constructor() {
+    public static void constructor() {
         myApp = new App();
     }
+
+    /* Para o caso de querer utilizar o BeforeEacc, já não é preciso utilizar
+    o static.
+    @BeforeEach
+    public static void constructor() {
+        myApp = new App();
+    }
+     */
+
     @Test
     public void multiplyTest() {
-        assertEquals(5, myApp.multiply(2,2));
+        assertEquals(4, myApp.multiply(2,2));
     }
 }
